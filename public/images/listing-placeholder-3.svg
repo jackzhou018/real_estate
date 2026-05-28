@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title id="title">Townhome real estate listing placeholder</title>
+  <rect width="1200" height="800" fill="#f4f1ea"/>
+  <rect x="150" y="500" width="900" height="190" fill="#ffffff"/>
+  <path d="M170 500 420 310l250 190z" fill="#4f6f52"/>
+  <path d="M530 500 780 310l250 190z" fill="#b86f52"/>
+  <rect x="240" y="500" width="210" height="190" fill="#d9c8b4"/>
+  <rect x="610" y="500" width="210" height="190" fill="#d8dde4"/>
+  <rect x="310" y="570" width="70" height="120" fill="#ffffff"/>
+  <rect x="680" y="570" width="70" height="120" fill="#ffffff"/>
+</svg>

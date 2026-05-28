@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title id="title">Condo building real estate listing placeholder</title>
+  <rect width="1200" height="800" fill="#eef3ef"/>
+  <rect x="210" y="150" width="780" height="540" rx="8" fill="#ffffff"/>
+  <rect x="300" y="230" width="600" height="430" fill="#d8dde4"/>
+  <g fill="#ffffff">
+    <rect x="350" y="280" width="110" height="85"/>
+    <rect x="545" y="280" width="110" height="85"/>
+    <rect x="740" y="280" width="110" height="85"/>
+    <rect x="350" y="430" width="110" height="85"/>
+    <rect x="545" y="430" width="110" height="85"/>
+    <rect x="740" y="430" width="110" height="85"/>
+  </g>
+  <rect x="545" y="565" width="110" height="95" fill="#4f6f52"/>
+</svg>

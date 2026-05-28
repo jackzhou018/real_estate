@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title">
+  <title id="title">Professional broker portrait placeholder</title>
+  <rect width="900" height="1100" fill="#f7f4ef"/>
+  <circle cx="450" cy="330" r="150" fill="#d9c8b4"/>
+  <path d="M190 980c34-240 165-365 260-365s226 125 260 365z" fill="#4f6f52"/>
+  <rect x="80" y="80" width="740" height="940" rx="8" fill="none" stroke="#ffffff" stroke-width="24"/>
+</svg>
