@@ -13,29 +13,32 @@ export function ListingFilters({ listings }: { listings: Listing[] }) {
   const [maxPrice, setMaxPrice] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [status, setStatus] = useState("");
+  const [group, setGroup] = useState("");
   const [sort, setSort] = useState<Sort>("newest");
 
   const cities = Array.from(new Set(listings.map((listing) => listing.city)));
   const propertyTypes = Array.from(new Set(listings.map((listing) => listing.propertyType)));
   const statuses = Array.from(new Set(listings.map((listing) => listing.status)));
+  const groups = Array.from(new Set(listings.map((listing) => listing.group)));
 
   const filteredListings = useMemo(() => {
     return listings
       .filter((listing) => (city ? listing.city === city : true))
       .filter((listing) => (propertyType ? listing.propertyType === propertyType : true))
       .filter((listing) => (status ? listing.status === status : true))
-      .filter((listing) => (minPrice ? listing.price >= Number(minPrice) : true))
-      .filter((listing) => (maxPrice ? listing.price <= Number(maxPrice) : true))
+      .filter((listing) => (group ? listing.group === group : true))
+      .filter((listing) => (minPrice ? listing.priceValue >= Number(minPrice) : true))
+      .filter((listing) => (maxPrice ? listing.priceValue <= Number(maxPrice) : true))
       .sort((a, b) => {
-        if (sort === "price-asc") return a.price - b.price;
-        if (sort === "price-desc") return b.price - a.price;
+        if (sort === "price-asc") return a.priceValue - b.priceValue;
+        if (sort === "price-desc") return b.priceValue - a.priceValue;
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
-  }, [city, listings, maxPrice, minPrice, propertyType, sort, status]);
+  }, [city, group, listings, maxPrice, minPrice, propertyType, sort, status]);
 
   return (
     <div>
-      <div className="mb-8 grid gap-4 rounded-[32px] border border-hairline bg-white p-5 shadow-soft md:grid-cols-3 lg:grid-cols-6">
+      <div className="mb-8 grid gap-4 rounded-[32px] border border-hairline bg-white p-5 shadow-soft md:grid-cols-3 lg:grid-cols-7">
         <Field label="City">
           <Select value={city} onChange={(event) => setCity(event.target.value)}>
             <option value="">All cities</option>
@@ -68,6 +71,16 @@ export function ListingFilters({ listings }: { listings: Listing[] }) {
             {statuses.map((item) => (
               <option key={item} value={item}>
                 {item}
+              </option>
+            ))}
+          </Select>
+        </Field>
+        <Field label="Group">
+          <Select value={group} onChange={(event) => setGroup(event.target.value)}>
+            <option value="">All groups</option>
+            {groups.map((item) => (
+              <option key={item} value={item}>
+                {item === "active" ? "Active sale" : item === "rental" ? "Rentals" : "Recently sold"}
               </option>
             ))}
           </Select>

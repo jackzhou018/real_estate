@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Listing } from "@/data/listings";
-import { formatNumber, formatPrice } from "@/lib/utils";
+import { formatOptionalNumber } from "@/lib/utils";
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -25,14 +25,17 @@ export function ListingCard({ listing }: { listing: Listing }) {
       <div className="pt-3">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-base font-semibold leading-5 text-ink">{listing.address}</h3>
-          <p className="shrink-0 text-sm font-semibold text-ink">{formatPrice(listing.price)}</p>
+          <p className="shrink-0 text-sm font-semibold text-ink">{listing.priceLabel}</p>
         </div>
         <p className="mt-1 text-sm leading-5 text-muted">
           {listing.city}, {listing.state} {listing.zip}
         </p>
         <p className="mt-1 text-sm leading-5 text-muted">
-          {listing.beds} beds · {listing.baths} baths · {formatNumber(listing.sqft)} sqft
+          {listing.beds} beds · {listing.baths} baths ·{" "}
+          {listing.sqft === null ? "sqft available on request" : `${formatOptionalNumber(listing.sqft)} sqft`}
         </p>
+        {listing.community ? <p className="mt-1 text-sm leading-5 text-muted">{listing.community}</p> : null}
+        <p className="mt-2 text-xs font-medium text-muted">{listing.sourceLabel}</p>
         <Link href={`/listings/${listing.id}`} className="mt-3 inline-block text-sm font-medium text-ink underline underline-offset-4">
           View details
         </Link>

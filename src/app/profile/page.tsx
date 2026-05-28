@@ -3,26 +3,19 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { SectionHeading } from "@/components/SectionHeading";
+import { profileContent, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "Meet Lilian Yang, Real Estate Broker serving [Your City / Region]."
+  description: `Meet Lilian Yang, Real Estate Agent with ${siteConfig.brokerage} in Sarasota, Florida.`
 };
-
-const sections = [
-  ["About Lilian", "Lilian Yang helps clients make informed real estate decisions with steady communication, organized preparation, and a practical understanding of each client's goals."],
-  ["How I Help Buyers", "From search priorities to offer strategy, Lilian helps buyers compare options, understand tradeoffs, and move through each milestone with confidence."],
-  ["How I Help Sellers", "Lilian helps sellers prepare, price, and position their home with a clear plan designed around timing, presentation, and market conditions."],
-  ["My Approach", "Every client deserves straightforward guidance, prompt follow-up, and a process that makes the next step easy to understand."],
-  ["Local Expertise", "Use this section to describe Lilian's experience in [Your City / Region], including neighborhoods, property types, and local market patterns."]
-];
 
 export default function ProfilePage() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Profile" title="Lilian Yang, Real Estate Broker">
-          Professional guidance for buyers, sellers, and investors in [Your City / Region].
+        <SectionHeading eyebrow="Profile" title={profileContent.title}>
+          {profileContent.subtitle} · {profileContent.location}
         </SectionHeading>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="rounded-[20px] bg-soft p-3">
@@ -34,17 +27,37 @@ export default function ProfilePage() {
               className="rounded-[14px]"
             />
           </div>
-          <div className="grid gap-5">
-            {sections.map(([title, text]) => (
-              <Card key={title} className="transition hover:shadow-soft">
-                <h2 className="text-xl font-semibold text-ink">{title}</h2>
-                <p className="mt-3 leading-7 text-body">{text}</p>
-              </Card>
-            ))}
+          <div className="grid gap-6">
+            <Card className="transition hover:shadow-soft">
+              <p className="text-sm font-medium text-muted">{siteConfig.brokerage}</p>
+              <h2 className="mt-2 text-2xl font-semibold text-ink">{siteConfig.market}</h2>
+              <p className="mt-4 leading-8 text-body">{profileContent.bio}</p>
+            </Card>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {profileContent.stats.map(([value, label]) => (
+                <Card key={label} className="p-5 transition hover:shadow-soft">
+                  <p className="text-2xl font-semibold text-ink">{value}</p>
+                  <p className="mt-2 text-sm leading-5 text-muted">{label}</p>
+                </Card>
+              ))}
+            </div>
+
+            <Card>
+              <h2 className="text-xl font-semibold text-ink">Specialties & Service Areas</h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {profileContent.specialties.map((item) => (
+                  <span key={item} className="rounded-full border border-hairline bg-white px-4 py-2 text-sm font-medium text-ink">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Card>
+
             <div className="flex flex-wrap gap-3">
               <Button href="/contact?reason=General%20question">Schedule a Consultation</Button>
-              <Button href="/contact" variant="outline">
-                Contact Me
+              <Button href="/listings" variant="outline">
+                View Listings
               </Button>
             </div>
           </div>

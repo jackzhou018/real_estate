@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { getListingById, listings } from "@/data/listings";
-import { formatNumber, formatPrice } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 
 export function generateStaticParams() {
   return listings.map((listing) => ({ id: listing.id }));
@@ -40,13 +40,22 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
             <p className="mt-3 text-lg text-muted">
               {listing.address}, {listing.city}, {listing.state} {listing.zip}
             </p>
-            <p className="mt-6 text-3xl font-semibold text-ink">{formatPrice(listing.price)}</p>
+            <p className="mt-6 text-3xl font-semibold text-ink">{listing.priceLabel}</p>
+            <p className="mt-2 text-sm font-medium text-muted">{listing.sourceLabel}</p>
             <div className="mt-6 grid gap-4 rounded-[14px] border border-hairline bg-soft p-5 text-sm font-semibold text-ink sm:grid-cols-4">
               <span>{listing.beds} beds</span>
               <span>{listing.baths} baths</span>
-              <span>{formatNumber(listing.sqft)} sqft</span>
+              <span>{listing.sqft === null ? "Sqft available on request" : `${formatNumber(listing.sqft)} sqft`}</span>
               <span>{listing.propertyType}</span>
             </div>
+            {listing.community || listing.soldDate || listing.daysOnMarket || listing.pricePerSqft ? (
+              <div className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2">
+                {listing.community ? <span>Community: {listing.community}</span> : null}
+                {listing.soldDate ? <span>Sold: {listing.soldDate}</span> : null}
+                {listing.daysOnMarket ? <span>{listing.daysOnMarket} days on market</span> : null}
+                {listing.pricePerSqft ? <span>{listing.pricePerSqft}</span> : null}
+              </div>
+            ) : null}
             <p className="mt-8 leading-8 text-body">{listing.description}</p>
             <h2 className="mt-10 text-2xl font-semibold text-ink">Features</h2>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">

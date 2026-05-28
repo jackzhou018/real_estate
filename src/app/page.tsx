@@ -3,12 +3,13 @@ import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { ListingCard } from "@/components/ListingCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { listings } from "@/data/listings";
+import { availableListings } from "@/data/listings";
+import { clientHighlights, newsletterContent, siteConfig } from "@/lib/site";
 
 const values = [
-  ["Buyer Guidance", "A clear path for search strategy, offer preparation, inspections, and closing decisions."],
-  ["Seller Strategy", "Thoughtful pricing, preparation, positioning, and negotiation guidance for your next move."],
-  ["Local Market Insight", "Editable market-area expertise with practical context for timing, value, and opportunity."]
+  ["Buyer Guidance", "Local help comparing Sarasota-area homes, neighborhoods, tradeoffs, and offer strategy."],
+  ["Seller Strategy", "Thoughtful pricing, positioning, and preparation guidance for Gulf Coast sellers."],
+  ["Rentals & Management", "Support for rental searches, tenant placement, and property management needs."]
 ];
 
 export default function HomePage() {
@@ -30,10 +31,10 @@ export default function HomePage() {
       <section className="bg-soft py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Featured Listings" title="Selected Properties">
-            Manually managed featured properties for buyers and sellers to review.
+            {"Current sale and rental opportunities represented on Lilian's public profiles."}
           </SectionHeading>
           <div className="grid gap-x-6 gap-y-10 md:grid-cols-3">
-            {listings.slice(0, 3).map((listing) => (
+            {availableListings.slice(0, 3).map((listing) => (
               <ListingCard key={listing.id} listing={listing} />
             ))}
           </div>
@@ -43,9 +44,23 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+      <section className="border-t border-hairline bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Client Highlights" title="What clients appreciate">
+            {"Short paraphrased highlights from Lilian's public client feedback."}
+          </SectionHeading>
+          <div className="grid gap-5 md:grid-cols-3">
+            {clientHighlights.map((highlight) => (
+              <Card key={highlight} className="transition hover:shadow-soft">
+                <p className="leading-7 text-body">{highlight}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
       <CTASection
         title="Get Market Updates"
-        text="Sign up for practical notes about featured listings, buyer tips, seller strategy, and local neighborhood insights."
+        text={newsletterContent.intro}
         primaryHref="/newsletter"
         primaryLabel="Join the Newsletter"
         secondaryHref="/contact"
@@ -53,7 +68,7 @@ export default function HomePage() {
       />
       <CTASection
         title="Ready for a Clear Next Step?"
-        text="Tell Lilian what you are planning, and she will follow up with guidance tailored to your timeline."
+        text={`Tell Lilian what you are planning in ${siteConfig.market}, and she will follow up with guidance tailored to your timeline.`}
         primaryHref="/contact"
         primaryLabel="Contact Lilian"
         secondaryHref="/profile"

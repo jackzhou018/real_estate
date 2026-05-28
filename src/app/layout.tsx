@@ -7,13 +7,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Lilian Yang | Real Estate Broker",
+    default: "Lilian Yang | Sarasota Real Estate Agent",
     template: "%s | Lilian Yang"
   },
-  description: "Real estate guidance for buyers and sellers in [Your City / Region].",
+  description: "Sarasota-area real estate guidance for buyers, sellers, renters, and property management clients.",
   openGraph: {
-    title: "Lilian Yang | Real Estate Broker",
-    description: "Local guidance, market insight, and a clear plan from search to closing.",
+    title: "Lilian Yang | Sarasota Real Estate Agent",
+    description: "Local guidance for Sarasota-area homes, rentals, and property management.",
     url: siteConfig.url,
     siteName: "Lilian Yang Real Estate",
     type: "website"

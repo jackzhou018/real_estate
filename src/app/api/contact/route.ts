@@ -16,15 +16,12 @@ export async function POST(request: Request) {
     const text = [
       "New website contact form submission",
       "",
-      `Name: ${data.firstName} ${data.lastName}`,
+      `Name: ${data.name}`,
       `Email: ${data.email}`,
       `Phone: ${data.phone || "Not provided"}`,
-      `Reason: ${data.reason}`,
-      `Preferred contact method: ${data.preferredContactMethod}`,
+      `Reason: ${data.reason || "Not provided"}`,
       `Source page: ${data.sourcePage || "Not provided"}`,
       `Listing ID: ${data.listingId || "Not provided"}`,
-      `Email consent: ${data.emailConsent ? "Yes" : "No"}`,
-      `SMS consent: ${data.smsConsent ? "Yes" : "No"}`,
       "",
       "Message:",
       data.message
