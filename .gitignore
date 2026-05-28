@@ -31,6 +31,7 @@ pnpm-debug.log*
 *.swp
 .design-references/
 
+
 # Local-only files / backups
 .env.example
 context.txt
