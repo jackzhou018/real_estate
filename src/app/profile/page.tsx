@@ -20,11 +20,11 @@ export default function ProfilePage() {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="rounded-[20px] bg-soft p-3">
             <Image
-              src="/images/profile-placeholder.svg"
-              alt="Lilian Yang profile placeholder"
+              src="/images/profile.png"
+              alt="Lilian Yang"
               width={900}
               height={1100}
-              className="rounded-[14px]"
+              className="rounded-[14px] object-cover"
             />
           </div>
           <div className="grid gap-6">

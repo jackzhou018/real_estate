@@ -30,3 +30,8 @@ pnpm-debug.log*
 .vscode
 *.swp
 .design-references/
+
+# Local-only files / backups
+.env.example
+context.txt
+nested_real_estate_backup.tar

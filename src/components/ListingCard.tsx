@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Listing } from "@/data/listings";
+import { getListingPhotoLinks } from "@/lib/listingLinks";
 import { formatOptionalNumber } from "@/lib/utils";
 
 export function ListingCard({ listing }: { listing: Listing }) {
+  const [photoLink] = getListingPhotoLinks(listing);
+
   return (
     <article className="group h-full">
       <div className="relative aspect-square overflow-hidden rounded-[14px] bg-soft">
@@ -36,9 +39,19 @@ export function ListingCard({ listing }: { listing: Listing }) {
         </p>
         {listing.community ? <p className="mt-1 text-sm leading-5 text-muted">{listing.community}</p> : null}
         <p className="mt-2 text-xs font-medium text-muted">{listing.sourceLabel}</p>
-        <Link href={`/listings/${listing.id}`} className="mt-3 inline-block text-sm font-medium text-ink underline underline-offset-4">
-          View details
-        </Link>
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+          <Link href={`/listings/${listing.id}`} className="text-sm font-medium text-ink underline underline-offset-4">
+            View details
+          </Link>
+          <a
+            href={photoLink.href}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-medium text-ink underline underline-offset-4"
+          >
+            {photoLink.label}
+          </a>
+        </div>
       </div>
     </article>
   );

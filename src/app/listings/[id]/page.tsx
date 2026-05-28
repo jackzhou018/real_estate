@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { getListingById, listings } from "@/data/listings";
+import { getListingPhotoLinks } from "@/lib/listingLinks";
 import { formatNumber } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -23,6 +24,7 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
   if (!listing) notFound();
 
   const contactHref = `/contact?listing=${listing.id}&reason=Listing%20question`;
+  const photoLinks = getListingPhotoLinks(listing);
 
   return (
     <section className="py-16">
@@ -71,6 +73,11 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
             <p className="mt-3 leading-7 text-muted">{listing.contactCta}</p>
             <div className="mt-6 grid gap-3">
               <Button href={contactHref}>Ask About This Property</Button>
+              {photoLinks.map((link) => (
+                <Button key={link.href} href={link.href} variant="secondary">
+                  {link.label}
+                </Button>
+              ))}
               <Button href={`/contact?listing=${listing.id}&reason=Schedule%20a%20showing`} variant="secondary">
                 Schedule a Showing
               </Button>
