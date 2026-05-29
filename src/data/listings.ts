@@ -54,7 +54,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-1.svg",
     zillowUrl: "https://www.zillow.com/homedetails/6006-Anise-Dr-Sarasota-FL-34238/242233546_zpid/",
     propertyType: "House",
-    contactCta: "Ask Lilian for current details, showing availability, and Sarasota-area market context.",
+    contactCta: "Ask me for current details, showing availability, and Sarasota-area market context.",
     createdAt: "2026-05-01"
   },
   {
@@ -79,7 +79,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-2.svg",
     zillowUrl: "https://www.zillow.com/homedetails/6759-Hickory-Hammock-Cir-Bradenton-FL-34202/45704258_zpid/",
     propertyType: "Rental",
-    contactCta: "Contact Lilian for rental availability, application details, and local leasing guidance.",
+    contactCta: "Contact me for rental availability, application details, and local leasing guidance.",
     createdAt: "2026-04-25"
   },
   {
@@ -105,12 +105,12 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-3.svg",
     zillowUrl: "https://www.zillow.com/homedetails/17535-Jadestone-Ct-Venice-FL-34293/2062674333_zpid/",
     propertyType: "Rental",
-    contactCta: "Ask Lilian about lease terms, community amenities, and Venice-area rental options.",
+    contactCta: "Ask me about lease terms, community amenities, and Venice-area rental options.",
     createdAt: "2026-04-20"
   },
   {
     id: "4749-antrim-dr",
-    title: "Sarasota Rental Represented on Lilian Yang's Public Profile",
+    title: "Sarasota Rental Represented on My Public Profile",
     address: "4749 Antrim Dr",
     city: "Sarasota",
     state: "FL",
@@ -122,14 +122,14 @@ export const listings: Listing[] = [
     sqft: null,
     status: "For Rent",
     group: "rental",
-    description: "Sarasota rental represented on Lilian Yang's Zillow profile.",
+    description: "Sarasota rental represented on my Zillow profile.",
     features: ["Sarasota rental", "Public Zillow profile listing", "3 bedrooms", "Contact for current details"],
     sourceLabel: "Public Zillow profile listing",
     // Replace this placeholder with an approved listing image later. Do not hotlink Zillow or Homes.com images.
     imageUrl: "/images/listing-placeholder-1.svg",
     zillowUrl: "https://www.zillow.com/homedetails/4749-Antrim-Dr-Sarasota-FL-34240/337170002_zpid/",
     propertyType: "Rental",
-    contactCta: "Contact Lilian to confirm current rental availability and details.",
+    contactCta: "Contact me to confirm current rental availability and details.",
     createdAt: "2026-04-10"
   },
   {
@@ -153,7 +153,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-2.svg",
     zillowUrl: "https://www.zillow.com/b/5514-46th-ct-w-bradenton-fl-5hdxvJ/",
     propertyType: "Condo",
-    contactCta: "Ask Lilian about comparable sold properties and current Bradenton market conditions.",
+    contactCta: "Ask me about comparable sold properties and current Bradenton market conditions.",
     createdAt: "2025-01-15",
     soldDate: "Jan 15, 2025",
     daysOnMarket: 5,
@@ -180,7 +180,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-3.svg",
     zillowUrl: "https://www.zillow.com/homedetails/16314-Little-Garden-Dr-Wimauma-FL-33598/332845751_zpid/",
     propertyType: "House",
-    contactCta: "Ask Lilian about Wimauma sales history and nearby Tampa Bay market activity.",
+    contactCta: "Ask me about Wimauma sales history and nearby Tampa Bay market activity.",
     createdAt: "2024-02-08",
     soldDate: "Feb 8, 2024",
     daysOnMarket: 118,
@@ -207,7 +207,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-1.svg",
     redfinUrl: "https://www.redfin.com/FL/Gibsonton/12821-Buffalo-Run-Dr-33534/home/69374993",
     propertyType: "House",
-    contactCta: "Contact Lilian to compare similar sold homes and current buyer demand.",
+    contactCta: "Contact me to compare similar sold homes and current buyer demand.",
     createdAt: "2022-04-20",
     soldDate: "Apr 20, 2022",
     daysOnMarket: 5,
@@ -234,7 +234,7 @@ export const listings: Listing[] = [
     imageUrl: "/images/listing-placeholder-2.svg",
     zillowUrl: "https://www.zillow.com/homedetails/3725-Calamity-Ter-Bradenton-FL-34208/333368272_zpid/",
     propertyType: "House",
-    contactCta: "Ask Lilian for Bradenton-area selling strategy and pricing context.",
+    contactCta: "Ask me for Bradenton-area selling strategy and pricing context.",
     createdAt: "2022-01-05",
     soldDate: "Jan 5, 2022",
     daysOnMarket: 6,

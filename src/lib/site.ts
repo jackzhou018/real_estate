@@ -15,7 +15,7 @@ export const siteConfig = {
 export const heroContent = {
   headline: "Guiding Sarasota-area buyers, sellers, and renters with local care.",
   subheading:
-    "Lilian Yang is a Sarasota-based real estate professional with Florida Morning Realty LLC, helping clients navigate homes, rentals, and property management across Sarasota, Bradenton, Venice, Lakewood Ranch, Palmer Ranch, Wellen Park, and nearby communities."
+    "I'm a Sarasota-based real estate professional with Florida Morning Realty LLC, and I help clients navigate homes, rentals, and property management across Sarasota, Bradenton, Venice, Lakewood Ranch, Palmer Ranch, Wellen Park, and nearby communities."
 };
 
 export const profileContent = {
@@ -23,7 +23,7 @@ export const profileContent = {
   subtitle: "Real Estate Agent, Florida Morning Realty LLC",
   location: "Sarasota, Florida",
   bio:
-    "Lilian Yang is a Sarasota-area real estate professional with Florida Morning Realty LLC. With 11 years of experience and a track record across houses, townhomes, and condos, Lilian helps clients with buying, selling, rentals, and property management. Her public profiles highlight work across Sarasota, Bradenton, Venice, Lakewood Ranch, Palmer Ranch, Wellen Park, and surrounding Florida Gulf Coast communities.",
+    "I'm a Sarasota-area real estate professional with Florida Morning Realty LLC. With 11 years of experience and a track record across houses, townhomes, and condos, I help clients with buying, selling, rentals, and property management. My work spans Sarasota, Bradenton, Venice, Lakewood Ranch, Palmer Ranch, Wellen Park, and surrounding Florida Gulf Coast communities.",
   stats: [
     ["11", "Years of Experience"],
     ["16", "Closed Sales"],
@@ -60,9 +60,9 @@ export const clientHighlights = [
 ];
 
 export const newsletterContent = {
-  intro: "Get Sarasota-area market updates, rental insights, featured listings, and practical buyer/seller tips from Lilian Yang."
+  intro: "Get Sarasota-area market updates, rental insights, featured listings, and practical buyer and seller tips straight from me."
 };
 
 export const contactContent = {
-  intro: "Interested in buying, selling, renting, or property management in the Sarasota area? Send a message and Lilian will follow up."
+  intro: "Interested in buying, selling, renting, or property management in the Sarasota area? Send me a message and I'll follow up."
 };

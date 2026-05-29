@@ -38,7 +38,7 @@ export function ListingFilters({ listings }: { listings: Listing[] }) {
 
   return (
     <div>
-      <div className="mb-8 grid gap-4 rounded-[32px] border border-hairline bg-white p-5 shadow-soft md:grid-cols-3 lg:grid-cols-7">
+      <div className="mb-6 grid gap-4 rounded-2xl border border-hairline bg-white p-5 shadow-soft sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
         <Field label="City">
           <Select value={city} onChange={(event) => setCity(event.target.value)}>
             <option value="">All cities</option>
@@ -94,14 +94,24 @@ export function ListingFilters({ listings }: { listings: Listing[] }) {
         </Field>
       </div>
 
+      <p className="mb-6 text-sm font-medium text-muted">
+        {filteredListings.length} {filteredListings.length === 1 ? "property" : "properties"}
+      </p>
+
       {filteredListings.length ? (
-        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredListings.map((listing) => (
             <ListingCard key={listing.id} listing={listing} />
           ))}
         </div>
       ) : (
-        <div className="rounded-[14px] border border-hairline bg-white p-8 text-center text-muted">No featured listings match those filters.</div>
+        <div className="rounded-2xl border border-dashed border-hairline bg-white p-12 text-center text-muted">
+          No featured listings match those filters. Try widening your search or{" "}
+          <a href="/contact" className="font-semibold text-primary underline underline-offset-4 hover:text-primaryActive">
+            contact me
+          </a>{" "}
+          for a personalized search.
+        </div>
       )}
     </div>
   );

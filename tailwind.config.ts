@@ -5,17 +5,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#ff385c",
-        primaryActive: "#e00b41",
-        ink: "#222222",
-        body: "#3f3f3f",
-        muted: "#6a6a6a",
-        hairline: "#dddddd",
-        soft: "#f7f7f7",
-        strong: "#f2f2f2"
+        // Coastal-luxury palette: deep navy + warm brass + warm cream
+        primary: "#1B3A5B",
+        primaryActive: "#13293F",
+        accent: "#B0894F",
+        accentActive: "#95713B",
+        ink: "#14253B",
+        body: "#41495A",
+        muted: "#5C6470",
+        hairline: "#E6E0D4",
+        soft: "#F4F0E8",
+        strong: "#ECE6DA",
+        cream: "#FBF9F5"
+      },
+      fontFamily: {
+        serif: ["var(--font-serif)", "Georgia", "Cambria", "Times New Roman", "serif"],
+        sans: ["var(--font-sans)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"]
       },
       boxShadow: {
-        soft: "rgba(0, 0, 0, 0.02) 0 0 0 1px, rgba(0, 0, 0, 0.04) 0 2px 6px 0, rgba(0, 0, 0, 0.1) 0 4px 8px 0"
+        soft: "0 1px 2px rgba(20, 37, 59, 0.04), 0 8px 24px -12px rgba(20, 37, 59, 0.18)",
+        lift: "0 2px 4px rgba(20, 37, 59, 0.05), 0 18px 40px -18px rgba(20, 37, 59, 0.28)",
+        card: "0 1px 0 rgba(20, 37, 59, 0.04), 0 12px 30px -18px rgba(20, 37, 59, 0.22)"
+      },
+      letterSpacing: {
+        eyebrow: "0.18em"
       }
     }
   },

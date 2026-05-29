@@ -40,7 +40,7 @@ export function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 rounded-[20px] border border-hairline bg-white p-6 shadow-soft">
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-hairline bg-white p-6 shadow-soft sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="First name">
           <Input name="firstName" autoComplete="given-name" required />
@@ -67,7 +67,7 @@ export function NewsletterForm() {
       <label className="flex gap-3 text-sm leading-6 text-body">
         <Checkbox name="emailConsent" required /> I agree to receive real estate market updates by email.
       </label>
-      {message ? <p className="rounded-lg bg-red-50 p-3 text-sm font-medium text-red-700">{message}</p> : null}
+      {message ? <p role="status" className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-700">{message}</p> : null}
       <Button type="submit" className="w-full sm:w-auto">
         {submitting ? "Signing Up..." : "Sign Up"}
       </Button>

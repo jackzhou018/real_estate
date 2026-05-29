@@ -1,45 +1,54 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
-import { heroContent, siteConfig } from "@/lib/site";
+import { heroContent, profileContent, siteConfig } from "@/lib/site";
+
+const trustStats = [
+  profileContent.stats.find(([, label]) => label === "Years of Experience"),
+  profileContent.stats.find(([, label]) => label === "Closed Sales"),
+  profileContent.stats.find(([, label]) => label === "Zillow Rating")
+].filter(Boolean) as [string, string][];
 
 export function Hero() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[0.95fr_1.05fr] md:items-center lg:px-8 lg:py-16">
-        <div>
-          <p className="mb-4 text-sm font-medium text-muted">
-            {siteConfig.name}, {siteConfig.brokerage}
-          </p>
-          <h1 className="max-w-3xl text-[34px] font-semibold leading-tight text-ink sm:text-[44px] lg:text-[52px]">
-            {heroContent.headline}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-body">
-            {heroContent.subheading}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/listings">View Listings</Button>
-            <Button href="/contact" variant="outline">
-              Contact Lilian
-            </Button>
-          </div>
+    <section className="relative isolate overflow-hidden bg-ink">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/sarasota-area.jpg"
+          alt="Sarasota bayfront walkway lined with palm trees at golden hour"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/20" />
+      </div>
+
+      <div className="mx-auto flex max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-accent">
+          <span className="h-px w-8 bg-accent/60" aria-hidden="true" />
+          {siteConfig.brokerage}
+        </p>
+        <h1 className="mt-6 max-w-3xl font-serif text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          {heroContent.headline}
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">{heroContent.subheading}</p>
+
+        <div className="mt-9 flex flex-wrap gap-3">
+          <Button href="/listings">View Listings</Button>
+          <Button href="/contact" variant="ghost">
+            Contact Me
+          </Button>
         </div>
-        <div className="relative overflow-hidden rounded-[20px] bg-soft p-3">
-          <div className="relative grid aspect-[4/3] place-items-end overflow-hidden rounded-[14px] p-6">
-            <Image
-              src="/images/sarasota-area.jpg"
-              alt="Sarasota bayfront walkway with palm trees"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-            <div className="relative w-full rounded-[14px] border border-white/40 bg-white/95 p-5 shadow-soft">
-              <p className="text-sm font-medium text-muted">Featured Market Area</p>
-              <p className="mt-2 text-2xl font-semibold text-ink">{siteConfig.market}</p>
-              <p className="mt-3 leading-7 text-body">Buying, selling, rentals, and property management across Sarasota-area communities.</p>
+
+        <dl className="mt-14 flex flex-wrap gap-x-12 gap-y-6 border-t border-white/15 pt-8">
+          {trustStats.map(([value, label]) => (
+            <div key={label}>
+              <dt className="font-serif text-3xl font-semibold text-white">{value}</dt>
+              <dd className="mt-1 text-sm font-medium text-white/70">{label}</dd>
             </div>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

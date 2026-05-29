@@ -40,7 +40,7 @@ export function ContactForm() {
     if (response.ok) {
       setState("success");
       event.currentTarget.reset();
-      setMessage("Thank you. Your message has been sent, and Lilian will follow up soon.");
+      setMessage("Thank you. Your message has been sent, and I'll follow up soon.");
       return;
     }
 
@@ -49,7 +49,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 rounded-[20px] border border-hairline bg-white p-6 shadow-soft">
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-hairline bg-white p-6 shadow-soft sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name">
           <Input name="name" autoComplete="name" required />
@@ -70,10 +70,11 @@ export function ContactForm() {
       </Field>
       {message ? (
         <p
+          role="status"
           className={
             state === "success"
-              ? "rounded-lg bg-soft p-3 text-sm font-medium text-ink"
-              : "rounded-lg bg-red-50 p-3 text-sm font-medium text-red-700"
+              ? "rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm font-medium text-emerald-800"
+              : "rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-700"
           }
         >
           {message}
