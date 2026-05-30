@@ -5,7 +5,7 @@ export const siteConfig = {
   market: "Sarasota, FL and surrounding Gulf Coast / Tampa Bay area",
   email: "USHouses@yahoo.com",
   publicEmail: "lykw168@gmail.com",
-  phone: "(941) 882-9548",
+  phone: "(941) 441-5990",
   office: "Sarasota, Florida",
   serviceArea: "Sarasota, Bradenton, Venice, Lakewood Ranch, Palmer Ranch, Wellen Park, and nearby Gulf Coast communities",
   license: "Florida 3310238",
