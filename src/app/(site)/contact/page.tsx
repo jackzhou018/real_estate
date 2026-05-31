@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionHeading } from "@/components/SectionHeading";
-import { contactContent, siteConfig } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -17,7 +17,8 @@ const icons: Record<string, React.ReactNode> = {
   License: <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { contactContent, siteConfig } = await getSiteContent();
   const items: [string, string][] = [
     ["Phone", siteConfig.phone],
     ["Email", siteConfig.email],

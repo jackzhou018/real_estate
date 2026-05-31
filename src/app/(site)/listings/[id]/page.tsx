@@ -4,16 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
-import { getListingById, listings } from "@/data/listings";
+import { getListingById } from "@/lib/data/listings";
 import { formatNumber } from "@/lib/utils";
-
-export function generateStaticParams() {
-  return listings.map((listing) => ({ id: listing.id }));
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
-  const listing = getListingById(id);
+  const listing = await getListingById(id);
   return {
     title: listing ? listing.title : "Listing",
     description: listing ? `${listing.address}, ${listing.city}. Contact me for details.` : "Featured listing details."
@@ -22,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function ListingDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const listing = getListingById(id);
+  const listing = await getListingById(id);
   if (!listing) notFound();
 
   const contactHref = `/contact?listing=${listing.id}&reason=Listing%20question`;

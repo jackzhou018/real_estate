@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
-import { heroContent, profileContent, siteConfig } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
-const trustStats = [
-  profileContent.stats.find(([, label]) => label === "Years of Experience"),
-  profileContent.stats.find(([, label]) => label === "Closed Sales"),
-  profileContent.stats.find(([, label]) => label === "Zillow Rating")
-].filter(Boolean) as [string, string][];
+export async function Hero() {
+  const { heroContent, profileContent, siteConfig } = await getSiteContent();
+  const trustStats = [
+    profileContent.stats.find(([, label]) => label === "Years of Experience"),
+    profileContent.stats.find(([, label]) => label === "Closed Sales"),
+    profileContent.stats.find(([, label]) => label === "Zillow Rating")
+  ].filter(Boolean) as [string, string][];
 
-export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-ink">
       <div className="absolute inset-0 -z-10">

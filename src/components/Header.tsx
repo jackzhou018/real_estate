@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MobileMenu } from "@/components/MobileMenu";
 import { NavLink } from "@/components/NavLink";
-import { siteConfig } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
 const navItems = [
   ["Home", "/"],
@@ -11,7 +11,8 @@ const navItems = [
   ["Contact", "/contact"]
 ];
 
-export function Header() {
+export async function Header() {
+  const { siteConfig } = await getSiteContent();
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -46,7 +47,7 @@ export function Header() {
           </a>
         </div>
 
-        <MobileMenu />
+        <MobileMenu phone={siteConfig.phone} />
       </div>
     </header>
   );

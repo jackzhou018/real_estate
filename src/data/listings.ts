@@ -242,11 +242,6 @@ export const listings: Listing[] = [
   }
 ];
 
-export const activeListings = listings.filter((listing) => listing.group === "active");
-export const rentalListings = listings.filter((listing) => listing.group === "rental");
-export const soldListings = listings.filter((listing) => listing.group === "sold");
-export const availableListings = listings.filter((listing) => listing.group !== "sold");
-
-export function getListingById(id: string) {
-  return listings.find((listing) => listing.id === id);
-}
+// NOTE: This array is the seed/default data. At runtime the site reads listings
+// from the database via `@/lib/data/listings`. The seed script (`scripts/seed.ts`)
+// loads these rows into the database on first setup.

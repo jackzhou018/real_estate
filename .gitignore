@@ -6,9 +6,12 @@ node_modules
 out
 
 # Environment files and secrets
+# Every .env variant — real values live ONLY in .env.local locally and in the
+# host's (Vercel) environment settings. Never commit any of these.
 .env
-.env.local
+.env.*
 .env*.local
+*.env
 
 # Vercel local metadata
 .vercel
@@ -36,3 +39,31 @@ pnpm-debug.log*
 .env.example
 context.txt
 nested_real_estate_backup.tar
+
+# --- Private keys, certificates & credential files (never commit) ---
+*.pem
+*.key
+*.pfx
+*.p12
+*.keystore
+*.jks
+id_rsa
+id_rsa.*
+id_dsa
+id_ed25519
+id_ecdsa
+# Common service-account / credential JSON dumps
+*-service-account.json
+service-account*.json
+*serviceAccount*.json
+*credentials*.json
+gha-creds-*.json
+secrets.json
+.secrets/
+auth.json
+
+# --- Supabase CLI local artifacts (keeps schema.sql tracked, ignores local state) ---
+.supabase/
+supabase/.branches/
+supabase/.temp/
+supabase/.env

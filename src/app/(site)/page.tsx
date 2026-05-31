@@ -3,8 +3,8 @@ import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { ListingCard } from "@/components/ListingCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { availableListings } from "@/data/listings";
-import { clientHighlights, newsletterContent, siteConfig } from "@/lib/site";
+import { getAvailableListings } from "@/lib/data/listings";
+import { getSiteContent } from "@/lib/data/content";
 
 const values: [string, string, React.ReactNode][] = [
   [
@@ -39,7 +39,11 @@ const values: [string, string, React.ReactNode][] = [
   ]
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [availableListings, { clientHighlights, newsletterContent, siteConfig }] = await Promise.all([
+    getAvailableListings(),
+    getSiteContent()
+  ]);
   return (
     <>
       <Hero />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
 const links = [
   ["Home", "/"],
@@ -11,7 +11,8 @@ const links = [
   ["Terms", "/terms"]
 ];
 
-export function Footer() {
+export async function Footer() {
+  const { siteConfig } = await getSiteContent();
   return (
     <footer className="border-t border-hairline bg-ink text-white">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.4fr_1fr] lg:px-8">

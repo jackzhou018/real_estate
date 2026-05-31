@@ -3,14 +3,18 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { SectionHeading } from "@/components/SectionHeading";
-import { profileContent, siteConfig } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
-export const metadata: Metadata = {
-  title: "Profile",
-  description: `I'm Lilian Yang, a Real Estate Agent with ${siteConfig.brokerage} in Sarasota, Florida.`
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { siteConfig } = await getSiteContent();
+  return {
+    title: "Profile",
+    description: `I'm ${siteConfig.name}, a Real Estate Agent with ${siteConfig.brokerage} in Sarasota, Florida.`
+  };
+}
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const { profileContent, siteConfig } = await getSiteContent();
   return (
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

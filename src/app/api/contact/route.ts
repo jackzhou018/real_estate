@@ -1,8 +1,21 @@
 import { NextResponse } from "next/server";
 import { sendWebsiteEmail } from "@/lib/email";
 import { contactSchema } from "@/lib/validation";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
+
+// Anti-spam: max 5 submissions per IP per hour (each sends real email).
+const LIMIT = 5;
+const WINDOW_MS = 60 * 60 * 1000;
 
 export async function POST(request: Request) {
+  const limit = rateLimit(`contact:${clientIp(request)}`, LIMIT, WINDOW_MS);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: "Too many submissions. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(limit.retryAfter) } }
+    );
+  }
+
   try {
     const body = await request.json();
     const parsed = contactSchema.safeParse(body);
@@ -30,6 +43,8 @@ export async function POST(request: Request) {
     await sendWebsiteEmail({ subject, text, replyTo: data.email });
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Unable to send contact form." }, { status: 500 });
+    // Log the real error server-side; return a generic message to the client.
+    console.error("Contact form error:", error);
+    return NextResponse.json({ error: "Unable to send your message right now. Please try again later." }, { status: 500 });
   }
 }

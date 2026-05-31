@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { ListingFilters } from "@/components/ListingFilters";
 import { ListingCard } from "@/components/ListingCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { availableListings, soldListings } from "@/data/listings";
+import { getAvailableListings, getSoldListings } from "@/lib/data/listings";
 
 export const metadata: Metadata = {
   title: "Featured Listings",
   description: "Selected featured real estate listings I manage personally."
 };
 
-export default function ListingsPage() {
+export default async function ListingsPage() {
+  const [availableListings, soldListings] = await Promise.all([getAvailableListings(), getSoldListings()]);
   return (
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SectionHeading } from "@/components/SectionHeading";
-import { newsletterContent } from "@/lib/site";
+import { getSiteContent } from "@/lib/data/content";
 
 export const metadata: Metadata = {
   title: "Newsletter",
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 
 const topics = ["Sarasota market updates", "Rental insights", "Featured listings", "Buyer tips", "Seller tips"];
 
-export default function NewsletterPage() {
+export default async function NewsletterPage() {
+  const { newsletterContent } = await getSiteContent();
   return (
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
